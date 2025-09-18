@@ -10,14 +10,17 @@ import frc.robot.commands.auto.AutoCommand;
 import frc.robot.commands.auto.DriveForward;
 import frc.robot.gamepad.OI;
 import frc.robot.subsystems.ControlPanel;
+import frc.robot.subsystems.DepthCamera;
 import frc.robot.subsystems.DriveTrain;
 //import frc.robot.subsystems.OMS;
 //import frc.robot.commands.TeleopOMS;
+import frc.robot.subsystems.Monitoramento;
 
 public class RobotContainer {
 
+  public final Monitoramento monitor = new Monitoramento();
+  public static final DepthCamera camera = new DepthCamera();
   public static ControlPanel controlpanel;
-
   public static DriveTrain driveTrain;
   // public static OMS oms;
   public static OI oi;
@@ -35,6 +38,11 @@ public class RobotContainer {
     driveTrain.setDefaultCommand(new Teleop());
     // oms.setDefaultCommand(new TeleopOMS());
   }
+
+  public DepthCamera getCamera() {
+    return camera;
+}
+
 
   public Command getAutonomousCommand() {
     String mode = autoChooser.getSelected();
