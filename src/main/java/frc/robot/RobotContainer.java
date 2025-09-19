@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.Teleop;
 import frc.robot.commands.auto.AutoCommand;
 import frc.robot.commands.auto.DriveForward;
+import frc.robot.commands.auto.RotateToAngleWithPIDCommand;
 import frc.robot.gamepad.OI;
 import frc.robot.subsystems.ControlPanel;
 import frc.robot.subsystems.DepthCamera;

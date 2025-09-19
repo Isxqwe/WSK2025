@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.auto.AutoCommand;
 import frc.robot.commands.auto.DriveForward;
 import frc.robot.commands.auto.DriveForwardWithPID;
+import frc.robot.commands.auto.RotateToAngleWithPIDCommand;
 
 public class Robot extends TimedRobot {
 
@@ -105,6 +106,9 @@ public class Robot extends TimedRobot {
     }
     RobotContainer.autoChooser.setDefaultOption("Drive Forward", "Drive Forward");
     RobotContainer.autoMode.put("Drive Forward", new DriveForward());
+    
+    addAutoMode(RobotContainer.autoChooser, "Rotate to Angle", new RotateToAngleWithPIDCommand());
+    
     addAutoMode(RobotContainer.autoChooser, "Drive Forward with PID", new DriveForwardWithPID());
     SmartDashboard.putData(RobotContainer.autoChooser);
   }
