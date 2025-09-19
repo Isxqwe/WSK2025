@@ -13,10 +13,12 @@ import frc.robot.commands.auto.TeleopAuto;
 import frc.robot.gamepad.OI;
 import frc.robot.subsystems.ControlPanel;
 import frc.robot.subsystems.DepthCamera;
+import frc.robot.subsystems.DepthWallRange;
 import frc.robot.subsystems.DriveTrain;
-//import frc.robot.subsystems.OMS;
-//import frc.robot.commands.TeleopOMS;
+import frc.robot.commands.TeleopOMS;
 import frc.robot.subsystems.Monitoramento;
+import frc.robot.subsystems.OMS;
+import frc.robot.subsystems.VisionSubsystem;
 
 public class RobotContainer {
 
@@ -24,7 +26,10 @@ public class RobotContainer {
   public static final DepthCamera camera = new DepthCamera();
   public static ControlPanel controlpanel;
   public static DriveTrain driveTrain;
-  // public static OMS oms;
+  public static final VisionSubsystem vision = new VisionSubsystem(camera);
+  public static final DepthWallRange wallRange = new DepthWallRange(camera);
+
+  public static OMS oms;
   public static OI oi;
 
   public static SendableChooser<String> autoChooser;
@@ -33,12 +38,12 @@ public class RobotContainer {
   public RobotContainer() {
 
     driveTrain = new DriveTrain();
-    // oms = new OMS();
+    oms = new OMS();
     oi = new OI();
     controlpanel = new ControlPanel();
 
     driveTrain.setDefaultCommand(new Teleop());
-    // oms.setDefaultCommand(new TeleopOMS());
+    oms.setDefaultCommand(new TeleopOMS());
   }
 
   public DepthCamera getCamera() {

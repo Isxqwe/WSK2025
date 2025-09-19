@@ -15,7 +15,8 @@ public class Giro450 extends SequentialCommandGroup {
         addCommands(
 
                 // Gira para 90 graus, com erro de 1 grau
-                new RotateToAngleWithPID(179.0, 1).withTimeout(3), new RotateToAngleWithPID(179.0, 1).withTimeout(3),
+                new RotateToAngleWithPID(179.0, 1).withTimeout(3), 
+                new RotateToAngleWithPID(179.0, 1).withTimeout(3),
                 new RotateToAngleWithPID(92.0, 1).withTimeout(3)
         // Timeout usado caso o comando não termine
 
