@@ -28,7 +28,7 @@ public class RobotContainer {
   public static OI oi;
 
   public static SendableChooser<String> autoChooser;
-  public static Map<String, AutoCommand> autoMode = new HashMap<>();
+  public static Map<String, Command> autoMode = new HashMap<>();
 
   public RobotContainer() {
 
@@ -43,8 +43,7 @@ public class RobotContainer {
 
   public DepthCamera getCamera() {
     return camera;
-}
-
+  }
 
   public Command getAutonomousCommand() {
     String mode = autoChooser.getSelected();

@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.auto.AutoCommand;
 import frc.robot.commands.auto.DriveForward;
 import frc.robot.commands.auto.DriveForwardWithPID;
+import frc.robot.commands.auto.Giro450;
 import frc.robot.commands.auto.RotateToAngleWithPIDCommand;
 import frc.robot.commands.auto.TeleopAuto;
 
@@ -103,12 +104,12 @@ public class Robot extends TimedRobot {
   // Método fictício que detecta comandos do Control Station Console
   private boolean controlStationStartButtonPressed() {
     // Aqui você pode definir a lógica para detectar o comando de Start
-    return false;  // Exemplo fictício
+    return false; // Exemplo fictício
   }
 
   private boolean controlStationStopButtonPressed() {
     // Aqui você pode definir a lógica para detectar o comando de Stop
-    return false;  // Exemplo fictício
+    return false; // Exemplo fictício
   }
 
   @Override
@@ -121,10 +122,11 @@ public class Robot extends TimedRobot {
 
     addAutoMode(RobotContainer.autoChooser, "Rotate to Angle", new RotateToAngleWithPIDCommand());
     addAutoMode(RobotContainer.autoChooser, "Drive Forward with PID", new DriveForwardWithPID());
+    addAutoMode(RobotContainer.autoChooser, "Giro450", new Giro450());
     SmartDashboard.putData(RobotContainer.autoChooser);
   }
 
-  public void addAutoMode(SendableChooser<String> chooser, String auto, AutoCommand cmd) {
+  public void addAutoMode(SendableChooser<String> chooser, String auto, Command cmd) {
     chooser.addOption(auto, auto);
     RobotContainer.autoMode.put(auto, cmd);
   }
