@@ -11,7 +11,7 @@ public class TeleopOMS extends CommandBase {
     private static final OI oi = RobotContainer.oi;
 
     // Garra
-    private static final double CLAW_OPEN_DEG = 260.0; // seu OMS permite até 220
+    private static final double CLAW_OPEN_DEG = 260.0;
     private static final double CLAW_CLOSED_DEG = 50.0;
 
     // Linear (padrão): Up = OUT (estendido), Down = IN (retraído)
@@ -27,7 +27,7 @@ public class TeleopOMS extends CommandBase {
     private static final double ELEV_SPEED_UP = 0.7;
     private static final double ELEV_SPEED_DOWN = -0.7;
 
-    private double currentLinearDeg = LINEAR_OUT_DEG; // Inicializa com a posição retraída (evitar que o servo inicie estendido)
+    private double currentLinearDeg = LINEAR_OUT_DEG; 
     private double currentClawDeg = CLAW_CLOSED_DEG;
 
     // Estado inicial: Pegada 1 (90°)

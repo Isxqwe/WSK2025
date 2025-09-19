@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.auto.AutoCommand;
 import frc.robot.commands.auto.DriveForward;
 import frc.robot.commands.auto.DriveForwardWithPID;
+import frc.robot.commands.auto.DriveUntilWallWithPid;
 import frc.robot.commands.auto.Giro450;
+import frc.robot.commands.auto.LabirintoA;
 import frc.robot.commands.auto.RotateToAngleWithPIDCommand;
 import frc.robot.commands.auto.TeleopAuto;
 
@@ -108,12 +110,13 @@ public class Robot extends TimedRobot {
     }
     RobotContainer.autoChooser.setDefaultOption("TeleopAuto", "TeleopAuto");
     RobotContainer.autoMode.put("TeleopAuto", new TeleopAuto());
-    
-    addAutoMode(RobotContainer.autoChooser, "Rotate to Angle", new RotateToAngleWithPIDCommand());
 
-    addAutoMode(RobotContainer.autoChooser, "Drive Forward with PID", new DriveForwardWithPID());
 
     addAutoMode(RobotContainer.autoChooser, "GIRO 450", new Giro450());
+
+    addAutoMode(RobotContainer.autoChooser, "MOD A", new LabirintoA());
+
+    addAutoMode(RobotContainer.autoChooser, "Until Wall", new DriveUntilWallWithPid(40.0, 0.0, 3000));
     SmartDashboard.putData(RobotContainer.autoChooser);
   }
 
