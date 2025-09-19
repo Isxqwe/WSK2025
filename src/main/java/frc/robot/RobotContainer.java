@@ -9,6 +9,7 @@ import frc.robot.commands.Teleop;
 import frc.robot.commands.auto.AutoCommand;
 import frc.robot.commands.auto.DriveForward;
 import frc.robot.commands.auto.RotateToAngleWithPIDCommand;
+import frc.robot.commands.auto.TeleopAuto;
 import frc.robot.gamepad.OI;
 import frc.robot.subsystems.ControlPanel;
 import frc.robot.subsystems.DepthCamera;
@@ -47,7 +48,7 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
     String mode = autoChooser.getSelected();
-    return autoMode.getOrDefault(mode, new DriveForward());
+    return autoMode.getOrDefault(mode, new TeleopAuto());
   }
 
 }
